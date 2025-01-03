@@ -1,4 +1,6 @@
-﻿using LowFatDependencyInjection.Services;
+﻿using Autofac.Extensions.DependencyInjection;
+using Autofac;
+using LowFatDependencyInjection.Services;
 
 namespace LowFatDependencyInjection.Extensions
 {
@@ -10,6 +12,18 @@ namespace LowFatDependencyInjection.Extensions
             services.AddScoped<IShoppingCartService, ShoppingCartService>();
 
             return services;
+        }
+
+        public static ConfigureHostBuilder AddAutofacServices(this ConfigureHostBuilder host)
+        {
+            host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+
+            host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
+            {
+                containerBuilder.RegisterModule<ServiceModule>();
+            });
+
+            return host;
         }
     }
 }
