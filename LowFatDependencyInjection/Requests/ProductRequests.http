@@ -1,0 +1,43 @@
+@LowFatDependencyInjection_HostAddress = http://localhost:5019
+
+GET {{LowFatDependencyInjection_HostAddress}}/api/product/
+Accept: application/json
+
+###
+
+@id=1
+GET {{LowFatDependencyInjection_HostAddress}}/api/product/{{id}}
+
+###
+
+POST {{LowFatDependencyInjection_HostAddress}}/api/product
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "MILK",
+  "price": 4
+}
+
+###
+
+@id=1
+PUT {{LowFatDependencyInjection_HostAddress}}/api/product/{{id}}
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "MILK",
+  "price": 5
+}
+
+###
+
+
+@id=1
+DELETE {{LowFatDependencyInjection_HostAddress}}/api/product/{{id}}
+
+###
+
+
+

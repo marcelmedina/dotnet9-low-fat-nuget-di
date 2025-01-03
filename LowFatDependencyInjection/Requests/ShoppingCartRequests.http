@@ -1,0 +1,30 @@
+﻿@LowFatDependencyInjection_HostAddress = https://localhost:7124
+
+@userId=1
+GET {{LowFatDependencyInjection_HostAddress}}/api/shoppingcart/{{userId}}
+
+###
+
+@userId=1
+POST {{LowFatDependencyInjection_HostAddress}}/api/shoppingcart/{{userId}}
+Content-Type: application/json
+
+[
+  {
+    "id": 1,
+    "name": "MILK",
+    "price": 4
+  },
+  {
+    "id": 2,
+    "name": "COFFEE",
+    "price": 5
+  }
+]
+
+###
+
+@userId=1
+DELETE {{LowFatDependencyInjection_HostAddress}}/api/shoppingcart/{{userId}}
+
+###
